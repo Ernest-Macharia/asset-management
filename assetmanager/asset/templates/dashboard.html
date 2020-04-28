@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Asset Management System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'socialmedia/css/bootstrap-theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'js/bootstrap.min.js' %}">
+    <link rel="stylesheet" href="{% static 'js/bootstrap.bundle.min.js' %}">
+    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/master.css'%}">
+
+</head>
+<nav class="navbar  mynav" role="navigation" id="navbar">
+      <div class="container-fluid">
+        
+          <a class="navbar-brand" href="{% url 'dashboard' %}">AMS</a>
+        
+          <ul class="nav navbar-nav navbar-right">
+          
+        
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'asset' %}" class="btn btn-simple">Asset</a></li>
+            <li><a href="{% url 'calculate' %}"  class="btn btn-simple">Calculate </a></li>
+            <li><a href="{% url 'home' %}" class="btn btn-simple"> Logout</a></li>
+            {% endif %}
+        </ul>
+    
+
+      </div>
+
+
+    </nav>
+<body>
+    
+    <div class="container">
+        <div class="jumbotron">
+            
+            <h2>ASSET MANAGEMENT SYSTEM</h2>
+            {% if user.is_authenticated %}
+        <h2 style="float:left;">Hello {{ user.username }}. Welcome to the system</h2>
+    {% else %}
+        <h2>Register or Login if you'd like to</h2>
+    {% endif %}
+        </div>
+        
+    </div>
+   
+
+</body>
+</html>
